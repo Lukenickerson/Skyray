@@ -1,0 +1,273 @@
+{
+	"availableRaces" : [
+		{	"raceSkin"		: "nord"
+			,"displayName" 	: "Nord"		
+		},
+		{	"raceSkin"		: "orc"
+			,"displayName" 	: "Orc"			
+		},
+		{	"raceSkin"		: "redguard"
+			,"displayName" 	: "Redguard"			
+		},
+		{	"raceSkin"		: "nord"
+			,"displayName" 	: "Imperial"			
+		},
+		{	"raceSkin"		: "nord"
+			,"displayName" 	: "Breton"			
+		}
+	]
+	,"unavailableRaces" : [
+		{	"raceKey"		: "argonian"
+			,"displayName" 	: "Argonian"
+			
+		},
+		{	"raceKey"		: "khajiit"
+			,"displayName" 	: "Khajiit"
+			
+		},
+		{	"raceKey"		: "highelf"
+			,"displayName" 	: "High Elf"
+			
+		},
+		{	"raceKey"		: "woodelf"
+			,"displayName" 	: "Wood Elf"
+			
+		},
+		{	"raceKey"		: "darkelf"
+			,"displayName" 	: "Dark Elf"
+			
+		}
+	]
+	,"images" : {
+		"nord" 		: "default_nord.png"
+		,"redguard" : "default_redguard.png"
+		,"orc" 		: "default_orc.png"
+		,"tree1" 		: "tree1.png"
+		,"tree2" 		: "tree2.png"
+		,"bubble_chat" : "bubble_chat.png"
+		,"bubble_aggro" : "bubble_aggro.png"
+		,"signpost_left" : "signpost_left.png"
+		,"signpost_right" : "signpost_right.png"
+		,"signpost_three" : "signpost_three.png"
+		
+		,"legs_right_1" 	: "legs/legs_right_1.png"
+		,"legs_right_2" 	: "legs/legs_right_2.png"
+		,"legs_right_3" 	: "legs/legs_right_3.png"
+		,"legs_right_4" 	: "legs/legs_right_4.png"
+		,"legs_right_5" 	: "legs/legs_right_5.png"
+		,"legs_right_6" 	: "legs/legs_right_6.png"
+		,"legs_right_7" 	: "legs/legs_right_7.png"
+		,"legs_right_8" 	: "legs/legs_right_8.png"
+		,"legs_left_1" 		: "legs/legs_right_1.png"
+		,"legs_left_2" 		: "legs/legs_left_2.png"
+		,"legs_left_3" 		: "legs/legs_left_3.png"
+		,"legs_left_4" 		: "legs/legs_left_4.png"
+		,"legs_left_5" 		: "legs/legs_left_5.png"
+		,"legs_left_6" 		: "legs/legs_left_6.png"
+		,"legs_left_7" 		: "legs/legs_left_7.png"
+		,"legs_left_8" 		: "legs/legs_left_8.png"		
+		,"legs_standing" 	: "legs/legs_standing.png"
+		
+		,"redguard_arm_left_holding" 	: "redguard/redguard_arm_left_holding.png"
+		,"redguard_arm_left_relaxed" 	: "redguard/redguard_arm_left_relaxed.png"
+		,"redguard_arm_left_striking" 	: "redguard/redguard_arm_left_striking.png"
+		,"redguard_arm_right_holding" 	: "redguard/redguard_arm_right_holding.png"
+		,"redguard_arm_right_relaxed" 	: "redguard/redguard_arm_right_relaxed.png"
+		,"redguard_arm_right_striking" 	: "redguard/redguard_arm_right_striking.png"
+		,"redguard_head_left" 			: "redguard/redguard_head_left.png"
+		,"redguard_head_right" 			: "redguard/redguard_head_right.png"
+		,"redguard_torso" 				: "redguard/redguard_torso.png"
+		
+		,"nord_arm_left_holding" 	: "nord/nord_arm_left_holding.png"
+		,"nord_arm_left_relaxed" 	: "nord/nord_arm_left_relaxed.png"
+		,"nord_arm_left_striking" 	: "nord/nord_arm_left_striking.png"
+		,"nord_arm_right_holding" 	: "nord/nord_arm_right_holding.png"
+		,"nord_arm_right_relaxed" 	: "nord/nord_arm_right_relaxed.png"
+		,"nord_arm_right_striking" 	: "nord/nord_arm_right_striking.png"
+		,"nord_head_left" 			: "nord/nord_head_left.png"
+		,"nord_head_right" 			: "nord/nord_head_right.png"
+		,"nord_torso" 				: "nord/nord_torso.png"	
+		
+		,"orc_arm_left_holding" 	: "orc/orc_arm_left_holding.png"
+		,"orc_arm_left_relaxed" 	: "orc/orc_arm_left_relaxed.png"
+		,"orc_arm_left_striking" 	: "orc/orc_arm_left_striking.png"
+		,"orc_arm_right_holding" 	: "orc/orc_arm_right_holding.png"
+		,"orc_arm_right_relaxed" 	: "orc/orc_arm_right_relaxed.png"
+		,"orc_arm_right_striking" 	: "orc/orc_arm_right_striking.png"
+		,"orc_head_left" 			: "orc/orc_head_left.png"
+		,"orc_head_right" 			: "orc/orc_head_right.png"
+		,"orc_torso" 				: "orc/orc_torso.png"			
+		
+		,"shirt1_torso" 				: "clothing/shirt1_torso.png"
+		,"shirt2_torso" 				: "clothing/shirt2_torso.png"
+		,"shirt3_torso" 				: "clothing/shirt3_torso.png"
+		,"shirt4_torso" 				: "clothing/shirt4_torso.png"
+		,"shirt5_torso" 				: "clothing/shirt5_torso.png"
+		,"shirt6_torso" 				: "clothing/shirt6_torso.png"
+		,"shirt7_torso" 				: "clothing/shirt7_torso.png"
+	},
+	"prototypes" : {
+		"plant" : {
+			"name" : ""
+		}, "building" : {
+			"name" : ""
+		}
+	}
+	,"zones" : {
+		"SOUTH" : {
+			"name" : "Southern Skyray"
+			,"rightEdgeX" : 10000
+			,"exits" : [
+				{ "zoneKey" : "WEST", 		"x" : 0 }
+				,{ "zoneKey" : "WHITERUN", 	"x" : 10000 }
+			]
+			,"entities" : {
+				"N0" : {
+					"type" : "npc"
+					,"name" : "Alex"
+					,"loc" : { "x" : 10, "y" : 0 }				
+					,"race" : "nord"
+					,"isSneaking" : true
+					,"faction" : "peace"
+				}
+				,"N1" : {
+					"type" : "npc"
+					,"name" : "Botch"
+					,"loc" : { "x" : 50, "y" : 0 }			
+					,"race" : "redguard"
+					,"faction" : "peace"
+				}
+				,"N2" : {
+					"type" : "npc"
+					,"name" : "Chuck"
+					,"loc" : { "x" : 90, "y" : 0 }				
+					,"race" : "orc"
+					,"faction" : "peace"
+				}
+				,"N3" : {
+					"type" : "npc"
+					,"name" : "Dig Doug"
+					,"loc" : { "x" : 130, "y" : 0 }				
+					,"race" : "nord"
+					,"faction" : "peace"
+				}
+				,"E1" : {
+					"type" : "npc"
+					,"name" : "Raging Orc"
+					,"loc" : { "x" : 1900, "y" : 0 }	
+					,"race" : "orc"
+					,"aggro" : 1
+					,"isHostile" : true
+					,"faction" : "waagh"
+				}
+				,"E2" : {
+					"type" : "npc"
+					,"name" : "Raging Barbarian"
+					,"loc" : { "x" : 6000, "y" : 0 }	
+					,"race" : "nord"
+					,"aggro" : 1
+					,"isHostile" : true
+					,"faction" : "waagh"
+				}				
+			}
+			,"treeArray" : [300,1000,7910,5210,6720,680,2620,1750,680,5470,4410,7680,1940,3550,6420,9500,7738,2769,1958,5508,9228,6320,1895,3320,1446,6698,1769,4764]
+			,"dangerLevel" : 0
+		}
+		,"WEST" : {
+			"name" : "Western Skyray"
+			,"rightEdgeX" : 10000
+			,"exits" : [
+				{ "zoneKey" : "SOUTH", 		"x" : 10000 }
+				,{ "zoneKey" : "WHITERUN", 	"x" : 3000  }
+			]
+			,"treeArray" : [776,625,852,401,739,157,170,431,82,954,120,275,171,510,255,616,1589,5147,4941,658,321,1061,1136,7579,3760,5946,4763,2583,3901,8097,601,5612,7640,9150,5491,9684,5936,7967,8377,8152,5615,7145]
+			,"dangerLevel" : 2
+		}
+		,"WHITERUN" : {
+			"name" : "Whitewalk"
+			,"rightEdgeX" : 500
+			,"exits" : [
+				{ "zoneKey" : "WEST", 		"x" : 30 }
+				,{ "zoneKey" : "SOUTH", 	"x" : 0 }
+				,{ "zoneKey" : "RIVERWALK", 	"x" : 70 }
+			]
+			,"treeArray" : [447,500,13,286]
+			,"dangerLevel" : 0
+		}
+		,"RIVERWALK" : {
+			"name" : "Pale River Valley"
+			,"rightEdgeX" : 10000
+			,"exits" : [
+				{ "zoneKey" : "WHITERUN", 	"x" : 0  }
+				,{ "zoneKey" : "HORNGAR", 	"x" : 5000  }
+				,{ "zoneKey" : "THELIFT", 	"x" : 10000  }
+			]
+			,"treeArray" : [657,281,159,664,440,476,947,201,702,291,857,108,996,5353,8889,6387,8626,9752,365,8245,8630,9976,3500,8244,8351,5864,7988,4609,5396,7823,6129,1782,4394,5037,8191,5684,8593,7297,2021]
+			,"dangerLevel" : 2
+		}
+		,"THELIFT" : {
+			"name" : "The Lift"
+			,"rightEdgeX" : 10000
+			,"exits" : [
+				{ "zoneKey" : "RIVERWALK", 	"x" : 0 }
+				,{ "zoneKey" : "EAST", 		"x" : 9000  }
+				,{ "zoneKey" : "LIFTEN", 	"x" : 10000  }
+			]
+			,"treeArray" : [919,900,7890,4120,14,1340,6160,410,6990,4530,9100,7790,8280,5080,7970,7660,5850,5600,3311,5185,1327,7968,3822,2503,8178,2401,1272,3426,6310,4619,7799,7006]
+			,"dangerLevel" : 3
+		}
+		,"LIFTEN" : {
+			"name" : "Liften City"
+			,"rightEdgeX" : 500
+			,"exits" : [
+				{ "zoneKey" : "THELIFT", 	"x" : 0  }
+			]
+			,"treeArray" : [40,70,120,400,440,500]
+			,"dangerLevel" : 0
+		}
+		,"HORNGAR" : {
+			"name" : "Horngar Heights"
+			,"rightEdgeX" : 500
+			,"exits" : [
+				{ "zoneKey" : "RIVERWALK", 	"x" : 500  }
+				,{ "zoneKey" : "SKULL", 	"x" : 0  }
+			]
+			,"treeArray" : []
+			,"dangerLevel" : 0
+		}
+		,"SKULL" : {
+			"name" : "Skull of the World"
+			,"rightEdgeX" : 10000
+			,"exits" : [
+				{ "zoneKey" : "HORNGAR", 	"x" : 10000  }
+			]
+			,"treeArray" : [9000,9170,9200,8000]
+			,"dangerLevel" : 5
+		}
+		,"EAST" : {
+			"name" : "Eastslog"
+			,"rightEdgeX" : 30000
+			,"exits" : [
+				{ "zoneKey" : "THELIFT", 	"x" : 30000  }
+				,{ "zoneKey" : "WINTER", 	"x" : 0  }
+			]
+			,"treeArray" : [
+				22940,26950,13750,29550,7670,3960,29830,17230,16030,13120
+				,28860,3180,6460,3570,439,2806,2427,1448,1417,1016,1045,1238,1772,150
+				,1466,207,1751,2749,769,797,1675,2535,860,2624,934,261,2966,1738,797
+				,2436,2692,352,644,3287,3261,2786,7416,8016,6602,8163,4238,6084
+				,4770,4974,5600,4165,9803,393,5718,3772,8486,3361,532,9584,1046
+				,7969,7227,5987,5766,9686,2260,937,4839,6941,6014,6416,7590,4832
+			]
+			,"dangerLevel" : 5
+		}
+		,"WINTER" : {
+			"name" : "Winterkeep"
+			,"rightEdgeX" : 1000
+			,"exits" : [
+				{ "zoneKey" : "EAST", 	"x" : 0  }
+			]
+			,"treeArray" : [20,60,100]
+		}
+	}
+}

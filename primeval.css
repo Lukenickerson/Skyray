@@ -1,0 +1,517 @@
+/* ==== Fonts ==== */
+
+@font-face{ 
+	font-family: 'Silkscreen';
+	src: url('fonts/slkscr-webfont.eot');
+	src: url('fonts/slkscr-webfont.eot?iefix') format('eot'),
+	     url('fonts/slkscr-webfont.woff') format('woff'),
+	     url('fonts/slkscr-webfont.ttf') format('truetype'),
+	     url('fonts/slkscr-webfont.svg#webfont') format('svg');
+}
+
+/* ==== Body, Basics ==== */
+
+html, body {
+	padding: 0; margin: 0;
+}
+body {
+	background-color: #333;
+	font-family: 'Silkscreen', Arial, sans-serif;
+	text-align: center;
+	background: -webkit-radial-gradient(50% 50%, circle farthest-corner, #666, #333);
+}
+
+a {
+	color: #86A9FF;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+button {
+    min-width: 44px;
+    min-height: 44px;
+	font-size: 150%;
+	background-color: rgba(51,51,51,0.8);
+	color: #eee;
+	border: solid 1px #ccc;
+	border-radius: 4px;
+	font-family: 'Silkscreen', Arial, sans-serif;
+	outline: none;
+}
+button:hover {
+	border-color: #ddd;
+	background-color: rgba(51,51,51,0.9);
+}
+button:active {
+	color: white;
+	/* background-color: rgba(90,60,30,0.3); */
+}
+
+button.iconButton {
+	font-size: 150%;
+	background-color: #F2ECD2;
+	background-color: rgba(90,60,30,0.1);
+	color: #5A3D1F;
+	border: solid 1px #5A3C1E;
+	border: solid 1px rgba(90,60,30,0.5);	
+}
+button.iconButton:hover {
+	border-color: #5A3C1E;
+	background-color: rgba(90,60,30,0.2);
+}
+button.iconButton:active {
+	color: white;
+	/* background-color: rgba(90,60,30,0.3); */
+}
+
+
+
+
+/* ==== Header ==== */
+
+header {
+	display: none;
+	color: #bbb;
+	text-align: center;
+	
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;	
+}
+h1 {
+	font-family: 'Voltaire', sans-serif;
+	
+}
+.topTitle {
+	display: inline-block;
+	font-size: 50%;
+	padding: 0.25em 1em;
+	margin-bottom: 0.25em;
+	border-bottom: solid 1px #bbb;
+}
+.mainTitle {
+	display: block;
+	font-size: 120%;
+	letter-spacing: 0.4em;
+	text-transform: uppercase;
+	text-shadow: -1px -1px 0 white, 1px 1px 0 black;
+}
+
+/* ==== Interface === */
+
+#interface {
+	display: none;
+    position: relative;
+    width: 320px;
+    height: 480px;
+    margin: 0 auto;
+    background-color: #F2ECD2;
+    box-shadow: 0 0 5em #333;
+	/* http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;	
+}
+#topContainer {
+    position: absolute;
+    top: 5px;
+    width: inherit;
+    /* background-color: rgba(100,100,100,0.2); */
+	border-radius: 10px;  
+}
+
+#compass {
+	
+}
+
+#startButton {
+    float: right;
+	cursor: pointer;
+	background-color: rgba(255,255,255,0.15);
+}
+#notifications {
+
+}
+
+#canvasContainer {
+    width: 320px;
+    height: 320px;
+	/* Sky */
+    background-color: #cdf;
+	background-color: -webkit-linear-gradient(top, #3366ff, #def) fixed;
+	background-image: url('images/background_near.png'), url('images/background_far.png');
+	background-repeat: repeat-x, repeat-x;
+	background-position: 0px center, 0px center;
+}
+#ioContainer {
+
+}
+#attributes {
+	position: absolute;
+	top: 300px;
+	width: inherit;
+}
+#attributes ul { padding: 0; margin: 0; list-style: none; }
+#attributes ul > li { 
+	display: inline-block;
+	opacity: 0.0;
+	height: 7px;
+	width: 80px;
+	padding: 0;
+	margin: 0;
+	border: solid 1px rgba(100,100,100,0.5);
+	transition: all 0.5s ease-in-out;
+	overflow: hidden;
+}
+#attributes ul > li span {
+	display: none;
+}
+#attributes ul > li > div {
+	height: inherit;
+	margin: 0 auto;
+}
+#magicka > div {	background-color: blue; }
+#stamina > div {	background-color: green; }
+#health > div {	background-color: red; }
+
+
+
+#directionControls, #actionControls {
+	margin: 12px 0;
+}
+/*
+#directionControls button {
+	width: 40%;
+	height: 60px;
+	margin: 0 4%;
+	font-size: 200%;
+}
+*/
+
+#ioContainer button {
+	width: 26%;
+	height: 60px;
+	margin: 0 2%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	/* background-size: 48px 48px; */
+}
+
+.leftHand {		background-image: url('images/hand2.png'); }
+.rightHand {	background-image: url('images/hand1.png'); }
+.selectedAction { background-image: url('images/compass.png'); 
+	cursor: pointer;
+}
+#ioContainer button.left
+,#ioContainer button.right {
+	width: 33%;
+	/* font-size: 200%;
+	line-height: 1em;
+	*/
+}
+#ioContainer button.sneak {
+	width: 12%;
+}
+
+
+/* ==== Tips ==== */
+
+#tips, #notifications {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+	margin: 0;
+}
+#tips > div, #notifications > div {
+	position: absolute;
+	top: 0; left: 0;
+	margin: 0 5%;
+	max-width: 24em;
+	background-color: rgba(200,200,200,0.99);
+	background-color: #F2ECD2;
+	box-shadow: 0.1em 0.5em 0.5em rgba(50,50,50,0.5);
+	border-radius: 0 0 0.25em 0.25em;
+	padding: 1em;
+	cursor: pointer;
+}
+#tips > div:after {
+	content: "X";
+	position: absolute;
+	top: 0.3em; right: 0.3em;
+	font-size: 85%;
+	opacity: 0.5;
+}
+#tips > div:hover {
+	z-index: 90;
+}
+
+
+
+
+
+
+
+
+
+/* ==== Menu / Options / Credits ==== */
+
+.fullInterface {
+	display: none;
+	box-sizing: border-box;
+	position: absolute;
+	top: 0; left: 0;
+	width: inherit;
+	height: inherit;
+	padding: 1em;
+}
+.shaded {
+	background: #333;
+	background: rgba(100,100,100,0.8);
+	box-shadow: inset 0 0 4em rgba(255,255,255,0.5); /* rgba(51,51,51,0.5); */
+}
+
+.fullInterface button {
+	display: block;
+	min-width: 10em;
+	margin: 0.5em auto;
+	padding: 0.5em;
+}
+button.resume {
+	display: block;
+	float: right;
+	min-width: 0;
+	margin-top: 0;
+}
+
+button.resume + button {
+	clear: both;
+}
+
+button.openSkills, button.openMagic, button.openItems, button.openMap {
+	min-width: 5em;
+}
+button.openSkills {
+	margin-top: 5em;
+}
+
+button.openMagic {
+	float: left;
+}
+
+button.openItems {
+	float: right;
+}
+button.openMap {
+	clear: both;
+}
+
+.bottomInfo {
+	position: absolute;
+	bottom: 0; left: 0;
+	width: inherit;
+	padding: 1em 0 1em 0;
+	background-color: rgba(51,51,51, 0.5);
+}
+
+/* ==== NPC Menus ==== */
+
+.npcName {
+	clear: both;
+	margin: 2em 0 1em 0;
+	padding: 0.5em;
+	color: #eee;
+	text-shadow: 1px 1px 0 black;
+}
+
+.chat {
+	position: absolute; bottom: 0; left: 0;
+	box-sizing: border-box;
+	width: inherit;
+	border: solid 3px #eee;
+	background-color: rgba(0,70,200,0.9);
+	padding: 1em;
+	border-radius: 1em;
+}
+.chat button {
+	min-width: 0;
+	display: inline-block;
+}
+
+/* ==== Full Screen - used by begin menu, credits, future dev ==== */
+
+.fullScreen {
+	display: none;
+	position: absolute; z-index: 99;
+	top: 0; left: 0;
+	width: 100%;
+	min-height: 100%;
+	background: black;
+	color: #eee;
+}
+
+.fullScreen p {
+	display: block;
+	width: 90%;
+	max-width: 800px;
+	margin: 2em auto;
+	font-size: 140%;
+	text-align: left;
+}
+.fullScreen div > p:first-child {
+	font-size: 180%;
+}
+.fullScreen button.resume {
+	width: 10em;
+	margin: 2em auto;
+	float: none;
+}
+.fullScreen .silk {
+	font-family: 'Silkscreen', Arial, sans-serif;
+}
+.fullScreen h1 {
+	font-size: 200%;
+	text-transform: uppercase;
+}
+
+/* ==== Begin Menu ==== */
+
+#beginScreen { }
+
+img.skyrim {
+	position: absolute;
+	top: 15%;
+	left: 15%;
+}
+
+
+img.deathray {
+	position: absolute;
+	bottom: 5%;
+	left: 5%;
+}
+
+#beginMenuList {
+	position: absolute;
+	bottom: 15%;
+	right: 15%;
+	min-width: 17em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+	@media (max-width: 500px) {
+		img.skyrim {
+			top: 5%;
+			left: 5%;
+		}
+		#beginMenuList {
+			right: 5%;
+		}
+	}
+	@media (max-width: 320px) {
+		img.skyrim {
+			left: 0;
+			width: 100%;
+		}
+		#beginMenuList {
+			width: 100%;
+			min-width: 5em;
+			right: 0;
+		}
+	}
+
+#beginMenuList li {
+	display: block;
+}
+#beginMenuList a {
+	display: block;
+	padding: 0.5em;
+	font-size: 170%;
+	color: white;
+	text-decoration: none;
+	transition: all 0.1s ease-in-out;
+	background: rgba(0,0,0,0.5);
+	text-shadow: 2px 2px 0 black;
+	border-radius: 0.5em;
+}
+#beginMenuList a.switchStart {
+	display: none;
+}
+#beginMenuList a:hover {
+	font-size: 240%;
+}
+#beginMenuList.start a {
+	display: none;
+}
+#beginMenuList.start a.switchStart {
+	display: block;
+}
+
+
+/* === Character Creation === */
+
+#creationMenu { }
+
+.raceList {
+	display: block;
+	padding: 0;
+	margin: 1em auto;
+	width: 30%;
+	min-width: 10em;
+	text-align: left;
+	list-style: none;
+	font-size: 140%;
+}
+.raceList li {
+	margin: 0.5em 0;
+}
+.raceList label {
+	display: inline-block;
+	/* padding: 0.5em 1em; */
+	cursor: pointer;
+}
+
+
+
+/* ==== System Menu Stuff === */
+
+.NA {
+	opacity: 0.3;
+}
+.NA:after {
+	content: "*";
+	display: inline-block;
+	margin: 0 0 0 0.5em;
+	color: #0FF;
+}
+.astericks {
+	color: #0FF;
+	font-size: 200%;
+}
+
+#creditsMenu {
+	font-family: 'Voltaire', sans-serif;
+}
+
+.warning {
+	position: absolute;
+	top: 0; left: 0;
+	background: rgba(255,0,0,0.5);
+	color: #ff0;
+	padding: 0.5em 0;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Skyray (Skyrim Demake 2D) - Deathray Games - miniLD 50</title>
+	<!--- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link href='http://fonts.googleapis.com/css?family=Voltaire' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="primeval.css" />	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body>
+
+	<header>
+		<h1><span class="topTitle">The Primeval Codex V</span>
+			<span class="mainTitle">Skyray</span>
+		</h1>
+	</header>
+	
+	<section id="beginMenu" class="fullScreen menu">
+		<!---
+		<div class="warning">
+			You're playing the Ludum Dare competition version of this game.
+			For a more complete experience, try the latest version.
+		</div>
+		--->
+		<img src="images/skyrim_logo_320x330.png" class="skyrim">
+		<img src="images/deathray_icon_64x64.png" class="deathray" alt="Deathray Games">
+		<ul id="beginMenuList" class="start">
+			<li><a href="#!" class="switchStart">Start</a></li>
+			<li><a href="#!" class="openContinue NA">Continue</a></li>
+			<li><a href="#!" class="openNew">New</a></li>
+			<li><a href="#!" class="openLoad NA">Load</a></li>
+			<li><a href="#!" class="openCredits">Credits</a></li>
+		</ul>
+	</section>
+	
+	<section id="creationMenu" class="fullScreen menu">
+		<h1>Create Character</h1>
+		<h2>Select a race:</h2>
+		<ul class="raceList">
+		</ul>
+		<button type="button" class="openLaunch">Start</button>
+	</section>
+	
+	<div id="interface">
+		<div id="topContainer">
+			<button type="button" id="startButton" class="iconButton" title="Start Menu">&#9654;</button>
+			<section id="compass">
+			
+			</section>
+		</div>
+		<section id="notifications">
+			<!--- List of notifications added dynamically --->
+		</section>    
+		<section id="tips">
+			<!--- List of tips, added dynamically --->
+		</section>
+		<section id="attributes">
+			<ul>
+				<li id="magicka"><div><span>x / y</span></div></li>
+				<li id="health"><div><span>x / y</span></div></li>
+				<li id="stamina"><div><span>x / y</span></div></li>
+			</ul>
+		</section>
+		
+		<section id="canvasContainer">
+			<canvas id="canvas"></canvas>
+		</section>
+		
+		<div id="ioContainer">
+
+			<section id="actionControls">
+				<button type="button" class="iconButton leftHand">
+				</button>
+				<button type="button" class="iconButton selectedAction">
+				</button>
+				<button type="button" class="iconButton rightHand">
+				</button>
+<!--- http://www.alanwood.net/demos/ent4_frame.html --->				
+			</section>
+			<section id="directionControls">
+				<button type="button" class="iconButton left">&lsaquo;</button>
+				<button type="button" class="iconButton sneak">&or;</button>
+				<button type="button" class="iconButton right">&rsaquo;</button>
+			</section>			
+		</div>
+		
+		<section id="characterMenu" class="menu shaded fullInterface">
+			<button type="button" class="resume">Resume</button>
+			<button type="button" class="openSkills NA">Skills</button>
+			<button type="button" class="openMagic NA">Magic</button>
+			<button type="button" class="openItems NA">Items</button>
+			<button type="button" class="openMap NA">Map</button>
+			<div class="bottomInfo">
+				Level X
+				[XP bar]
+			</div>
+		</section>
+		<section id="startMenu" class="menu shaded fullInterface">
+			<button type="button" class="resume">Resume</button>
+			<button type="button" class="openJournal NA">Journal</button>
+			<button type="button" class="openSave NA">Save</button>
+			<button type="button" class="openLoad NA">Load</button>
+			<button type="button" class="openSettings NA">Settings</button>
+			<button type="button" class="openCredits">Credits</button>
+			<button type="button" class="openQuit">Quit</button>
+		</section>
+		<section id="npcMenu" class="menu fullInterface">
+			<button type="button" class="resume">Goodbye</button>
+			<div class="npcName">NPC<!--- name goes here ---></div>
+			<div class="chat">
+				<div class="convo"><!--- chat goes here ---></div>
+				<button type="button" class="openNPCGossip NA">Gossip</button>
+				<button type="button" class="openNPCWork NA">Quests</button>
+				<button type="button" class="openNPCTrade NA">Trade</button>
+				<button type="button" class="openNPCAttack NA">Attack</button>
+			</div>
+		</section>
+	</div>
+	
+	
+	<section id="futureMenu" class="fullScreen menu">
+		<h1>Future Development</h1>
+		<p>
+			<span class="astericks">*</span> 
+			The feature you're trying to access isn't build yet, but is slated
+			for a future post-compo version.
+			If you'd like to see this feature added, please send the
+			developer a note of encouragement on Twitter 
+			<a href="https://twitter.com/deathraygames" target="_blank">@deathraygames</a>.
+		</p>
+		<button type="button" class="resume">Back</button>
+	</section>
+	
+	<section id="creditsMenu" class="fullScreen menu">
+		<h1>Credits</h1>
+		<div>
+		<p>
+			Design, Programming, and Graphics by Luke Nickerson 
+			(<a href="https://twitter.com/lukenickerson" target="_blank">@lukenickerson</a>, 
+			<a href="https://twitter.com/deathraygames" target="_blank">@deathraygames</a>).
+			Code is available on 
+			<a href="https://github.com/Lukenickerson" target="_blank">GitHub</a>.
+		</p>
+		<p>
+			Originally created for the 
+			<a href="http://www.ludumdare.com/compo/" target="_blank" class="silk">Ludum Dare</a>
+			48-hour competition
+			- <a href="http://www.ludumdare.com/compo/category/minild/minild-50/" class="silk" target="_blank">MiniLD 50</a>
+			with the theme <span class="silk">"Demakes"</span>. 
+			The 
+			<a href="http://deathraygames.com/play-online/miniLD50/">original version can be played</a>
+			if you don't mind fewer features.
+		</p>
+		<p>
+			Based on 
+			<a href="http://bethsoft.com/" target="_blank">Bethesda Softworks</a>'
+			<a href="http://www.elderscrolls.com/skyrim" target="_blank">Skyrim</a>,
+			one of the finest games ever made.
+		</p>
+		<p>
+			Fonts: 
+			<a href="http://www.fontsquirrel.com/fonts/Silkscreen" target="_blank" class="silk">Silkscreen from Font Squirrel</a>
+			and <a href="https://www.google.com/fonts/specimen/Voltaire" target="_blank">Voltaire from Google</a>
+		</p>
+		<p>
+			Thanks to the 
+			<a href="http://www.facebook.com/groups/219519888117323/" target="_blank">Skyrim Explorers</a>,
+			my gamer friends, and especially Christina for her unwavering support.
+		</p>
+		</div>
+		<button type="button" class="resume">Back</button>
+	</section>
+
+	<script src="js/datadelivery.1.js"></script>
+	<script src="codex.js"></script>
+	<script>
+		$(document).ready(function(){
+			window.dataDelivery = new DataDeliveryClass("refData");
+			window.drg = new SRGameClass(window.dataDelivery);
+			drg.setup();
+			
+			
+		});
+	</script>
+	
+</body>
+</html>
