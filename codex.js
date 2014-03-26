@@ -1,6 +1,7 @@
 
 var SREntityClass = function (type) {
 	this.type 			= type.toLowerCase();
+	this.name			= "something";
 	this.faction 		= "natural";
 	this.imageName		= "xxxxx"	
 	this.loc 			= { "x" : 0, "y" : 0 };
@@ -22,7 +23,8 @@ var SREntityClass = function (type) {
 		this.isPhysics = true;
 		this.isNPC = (this.type == "npc" || this.type == "monster");
 		this.isHostile 	= false;
-		this.race 		= "nord"
+		this.race 		= "nord";
+		this.likes		= ["nothing"];
 		this.magicka 	= 100;
 		this.health 	= 100;
 		this.stamina 	= 100;
@@ -114,7 +116,7 @@ var SRGameClass = function (dataDeliveryObj)
 		,"nearbyNPC" : []
 		,"nearbyStatic": []
 		,"physicsEntities" 	: []
-	}
+	};
 	
 	this.particles 	= [];
 	this.bubbles 	= [];
@@ -125,6 +127,7 @@ var SRGameClass = function (dataDeliveryObj)
 	this.zones = {};
 	this.availableRaces = [];
 	this.unavailableRaces = [];
+	this.allLikes = [];
 	
 	// DOM Elements
 	this.$tips = {};
@@ -206,6 +209,32 @@ var SRGameClass = function (dataDeliveryObj)
 		if (this.isLooping) this.loop();
 		console.log("Game " + ((this.isLooping) ? "un" : "") + "paused.");
 	}
+	
+	
+	this.blackOut = function (callback) {
+		//
+		/* WHY DOESN'T THIS WORK ?! :( */
+		//$('#blackoutShade').fadeIn(1300, function(){
+		$('#blackoutShade').show(1300, function(){
+			if (typeof callback === "function") callback();
+		});
+	}
+	this.blackIn = function (callback) {
+		$('#blackoutShade').fadeOut(1300, function(){ 
+			if (typeof callback === "function") callback();
+		});
+	}
+	this.blackOutAndIn = function (callback){
+		var o = this;
+		o.togglePause(true);
+		o.blackOut(function(){
+			o.blackIn(function(){
+				o.togglePause(false);
+				if (typeof callback === "function") callback();
+			});
+		});
+	}
+	
 	
 
 //=================== Movement & Physics =====\/\/\/\/\/\/\/\/\/\/\/\/=========
@@ -428,6 +457,8 @@ var SRGameClass = function (dataDeliveryObj)
 	this.magickaElt = {};
 	this.staminaElt = {};
 	this.healthElt = {};
+	this.targetHealthElt = {};
+	this.$interface = {};
 
 	this.alterCanvasSize = function(deltaX)
 	{
@@ -435,7 +466,7 @@ var SRGameClass = function (dataDeliveryObj)
 		o.dim.x += deltaX;
 		o.focusCanvasCoords.x = (o.dim.x / 2);
 		o.setupCanvas();
-		$('#interface').css("width", o.dim.x);
+		o.$interface.css("width", o.dim.x);
 		$('#canvasContainer').css("width", o.dim.x);		
 	
 	}
@@ -494,13 +525,13 @@ var SRGameClass = function (dataDeliveryObj)
 		this.updateAttribute("magicka", "maxMagicka");
 		this.updateAttribute("stamina", "maxStamina");
 		this.updateAttribute("health", "maxHealth");
+		this.updateTarget();
 		var nearX = 10 - (this.focusCoords.x / 10);
 		var farX = 10 - (this.focusCoords.x / 20);
 		this.$background[0].style.backgroundPosition =  nearX + "px center," + farX + "px center";
 	}
 	
-	this.updateAttribute = function(attName, attMaxName) 
-	{
+	this.updateAttribute = function(attName, attMaxName) {
 		var attElt = this[attName + "Elt"];
 		//console.log(this.game.pc[attMaxName]);
 
@@ -511,6 +542,17 @@ var SRGameClass = function (dataDeliveryObj)
 		} else {
 			attElt.style.opacity = 0.0;
 		}	
+	}
+	
+	this.updateTarget = function() {
+		if (this.selectedEntityKey != "") {
+			var ent = this.game.entities[this.selectedEntityKey];
+			var percent = (ent.health / ent.maxHealth) * 100;
+			this.targetHealthElt.children[0].style.width = percent + "%";
+			this.targetHealthElt.style.opacity = (percent >= 100) ? 0.0 : 1.0;
+		} else {
+			this.targetHealthElt.style.opacity = 0.0;
+		}
 	}
 	
 	
@@ -1025,7 +1067,9 @@ var SRGameClass = function (dataDeliveryObj)
 				$('#characterMenu').fadeIn(100);
 		} else if (ent.type == "exit") {
 			if (o.selectedEntityKey == entKey) {
-				// Zone Warp
+				//=== Zone Warp / Travel
+				o.blackOutAndIn();
+				
 				var newZone = o.zones[ent.exit.zoneKey];
 				var arrivalX = 0;
 				// Look through the new zone's exits
@@ -1042,6 +1086,11 @@ var SRGameClass = function (dataDeliveryObj)
 				var zoneName = o.zones[ent.exit.zoneKey].name;
 				o.addTip("This way leads to " + zoneName + ". (Tap signpost again to travel.)", 2000);
 			}
+		} else if (ent.type == "npc") {
+			o.selectedEntityKey = entKey;
+			var like = ent.likes[(o.roll1d(ent.likes.length) - 1)];
+			o.addTip("This is " + ent.name + " the " + ent.race + ". He likes " + like + ".", 2000);
+			
 		} else {
 			o.selectedEntityKey = entKey;
 		}
@@ -1237,6 +1286,7 @@ var SRGameClass = function (dataDeliveryObj)
 				newEnt.race = this.availableRaces[ this.roll1d(this.availableRaces.length) - 1 ].raceSkin;
 				newEnt.loc.x = this.roll1d( zone.rightEdgeX );
 				newEnt.shirtName = banditShirtName;
+				newEnt.likes[0] = this.allLikes[(this.roll1d(this.allLikes.length) - 1)];
 				this.entArrays.physics.push(entKey);
 			}
 		}
@@ -1299,6 +1349,7 @@ var SRGameClass = function (dataDeliveryObj)
 			o.zones = refData.zones;
 			o.availableRaces = refData.availableRaces;
 			o.unavailableRaces = refData.unavailableRaces;
+			o.allLikes = refData.allLikes;			
 			console.log("Load zone");
 			o.loadZone("SOUTH");
 			
@@ -1306,6 +1357,8 @@ var SRGameClass = function (dataDeliveryObj)
 			o.magickaElt = document.getElementById('magicka');
 			o.staminaElt = document.getElementById('stamina');
 			o.healthElt	= document.getElementById('health');		
+			o.targetHealthElt	= $('#target .health')[0];
+			o.$interface	= $('#interface');
 			
 			
 			// *** Start screen
@@ -1629,11 +1682,13 @@ var SRGameClass = function (dataDeliveryObj)
 		
 		o.closeAllMenus(false);
 		$('header').fadeIn(fadeInTime);
-		$('#interface').fadeIn(fadeInTime, function(){	
+		this.$interface.fadeIn(fadeInTime, function(){	
+			
 			o.zoomScale 			= 2.0;
 			o.playersLastZoomScale 	= 2.0;
 			// Draw it to start
 			o.redraw();
+			o.blackIn();
 			o.isLooping = true;
 			o.loop();
 			o.addTip("Try moving around and trying out combat. Good luck on your adventure!");

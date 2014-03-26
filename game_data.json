@@ -13,7 +13,7 @@
 			,"displayName" 	: "Imperial"			
 		},
 		{	"raceSkin"		: "nord"
-			,"displayName" 	: "Breton"			
+			,"displayName" 	: "Breton"
 		}
 	]
 	,"unavailableRaces" : [
@@ -105,14 +105,27 @@
 		,"shirt5_torso" 				: "clothing/shirt5_torso.png"
 		,"shirt6_torso" 				: "clothing/shirt6_torso.png"
 		,"shirt7_torso" 				: "clothing/shirt7_torso.png"
-	},
-	"prototypes" : {
-		"plant" : {
-			"name" : ""
-		}, "building" : {
-			"name" : ""
-		}
 	}
+	,"allLikes" : [
+		"sneaking around in shadows"
+		,"saving damsels"
+		,"reading ancient tomes"
+		,"petting cats"
+		,"contracting strange sicknesses"
+		,"curing the sick"
+		,"mending anything broken"
+		,"losing at chess"
+		,"dreaming of being a dragon"
+		,"digging in the dirt"
+		,"formulating conspiracies"
+		,"shouting at the sky"
+		,"stealing horses"
+		,"mining for diamonds"
+		,"lifting weights"
+		,"being asked about Job and Name"
+		,"haggling with adventurers"
+		,"telling jokes about demons"
+	]
 	,"zones" : {
 		"SOUTH" : {
 			"name" : "Southern Skyray"
@@ -125,7 +138,8 @@
 				"N0" : {
 					"type" : "npc"
 					,"name" : "Alex"
-					,"loc" : { "x" : 10, "y" : 0 }				
+					,"likes" : ["sneaking around in the shadows", "getting in trouble with the law"]
+					,"loc" : { "x" : 50, "y" : 0 }				
 					,"race" : "nord"
 					,"isSneaking" : true
 					,"faction" : "peace"
@@ -133,27 +147,31 @@
 				,"N1" : {
 					"type" : "npc"
 					,"name" : "Botch"
-					,"loc" : { "x" : 50, "y" : 0 }			
+					,"likes" : ["writing novels", "petting cats"]
+					,"loc" : { "x" : 90, "y" : 0 }			
 					,"race" : "redguard"
 					,"faction" : "peace"
 				}
 				,"N2" : {
 					"type" : "npc"
 					,"name" : "Chuck"
-					,"loc" : { "x" : 90, "y" : 0 }				
+					,"likes" : ["carrying heavy things", "yelling"]
+					,"loc" : { "x" : 130, "y" : 0 }				
 					,"race" : "orc"
 					,"faction" : "peace"
 				}
 				,"N3" : {
 					"type" : "npc"
 					,"name" : "Dig Doug"
-					,"loc" : { "x" : 130, "y" : 0 }				
+					,"likes" : ["mining", "shoveling"]
+					,"loc" : { "x" : 200, "y" : 0 }				
 					,"race" : "nord"
 					,"faction" : "peace"
 				}
 				,"E1" : {
 					"type" : "npc"
 					,"name" : "Raging Orc"
+					,"likes" : ["killing the weak"]
 					,"loc" : { "x" : 1900, "y" : 0 }	
 					,"race" : "orc"
 					,"aggro" : 1
@@ -163,6 +181,7 @@
 				,"E2" : {
 					"type" : "npc"
 					,"name" : "Raging Barbarian"
+					,"likes" : ["causing pain"]
 					,"loc" : { "x" : 6000, "y" : 0 }	
 					,"race" : "nord"
 					,"aggro" : 1
