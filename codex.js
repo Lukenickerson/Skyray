@@ -173,6 +173,7 @@ var SRGameClass = function (dataDeliveryObj)
 			this.attackRound();
 			this.makeSnow();
 		}
+		
 		this.movementRound();
 		this.damageRound();
 		this.physics(o.secondsPerLoop);
@@ -1341,7 +1342,9 @@ var SRGameClass = function (dataDeliveryObj)
 	this.setup = function()
 	{
 		var o = this;
-		this.dataDelivery.deliver("game_data.json", function(){
+		$.getJSON("game_data.json", function(data){
+			console.log(data);
+			var refData = o.refData = data;
 			// Continue with setup after data is loaded...
 			o.loadImages(refData.images);
 			o.setupCanvas();
@@ -1408,7 +1411,6 @@ var SRGameClass = function (dataDeliveryObj)
 			}, 200);
 			//return false;
 		}
-	
 	}
 	
 	this.setupCanvas = function () {
